@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academy kitties </title>
+  <script type="text/javascript" src="assets/js/jquery-3.4.1.js"></script>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <script src="assets/bootstrap/js/popper.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/web3.min.js"></script>
+  <script src="./abi.js"></script>
+
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/mystyle.css">
+  <link rel="stylesheet" href="assets/css/cats.css">
+  <link rel="stylesheet" href="assets/css/colors.css">
+  <link rel="stylesheet" href="assets/css/factory.css">
+  <link rel="stylesheet" href="assets/css/frontend.css">
+</head>
+  <body>
+    <header align="left">
+        <div class="btn-group">
+            <a href="index.html" class="btn btn-primary tsp-1 m-1 light-b-shadow" role="button">Home</a>
+            <a href="catalogue.html" class="btn btn-primary tsp-1 m-1 light-b-shadow" role="button">Catalogue</a>
+            <a href="breed.html" class="btn btn-primary tsp-1 m-1 light-b-shadow" role="button">Breed New Kitten</a>
+        </div>
+    </header>
+    <div class="container p-5" style="margin-top: 12vh;margin-bottom: 10vh;">
+        <div align="center">
+            <h1 class="c-white">Kitty Nursery</h1>
+            <p class="c-white">Breed a New Kitten</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 catBox m-2 light-b-shadow">
+    
+            </div>
+            <div class="col-lg-7 cattributes m-2 light-b-shadow">
+                <label for="mum">Mum ID: </label>
+                <input type="integer" id="mum" name="mum"><br>
+                <label for="dad">Dad ID: </label>
+                <input type="integer" id="dad" name="dad"><br>
+                <button class="btn btn-primary tsp-1 m-1 light-b-shadow" onclick="breedKitty()"><b>Breed!</b></button>
+            </div>
+    
+        </div>
+        <br>
+        <div class="container">
+        </div>
+        <br>
+    
+        <div class="alert alert-success" role="alert" id="kittyCreation" style="display:none">
+    
+        </div>
+    
+    </div>
+    
+    <footer align="left">
+        <p>Ivan on Tech Academy Bootcamp July 2020</p>
+    </footer>
+
+  </body>
+  <script src="./index.js"></script>
+  <script src="assets/js/colors.js"></script>
+  <script src="assets/js/catSettings.js"></script>
+  <script src="assets/js/catFactory.js"></script>
+
+</html>
