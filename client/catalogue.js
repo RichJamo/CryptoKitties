@@ -4,7 +4,7 @@ var instance;
 var user;
 var KittyIds;
 var Kitties=[];
-var contractAddress = "0xc7a395E3bf8c1ED2e6121aC6cB80271f89c7B219"; //need to put contract address here
+var contractAddress = "0x0b706DC82C073ba7Aa1179094235037A98720476"; //need to put contract address here
 
 $(document).ready(function(){
     window.ethereum.enable().then(function(accounts){
