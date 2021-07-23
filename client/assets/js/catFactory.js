@@ -137,7 +137,6 @@ function decorationVariation(num) {
 
 function animationVariation(num) {
     $('#dnadanimation').html(num)
-    console.log("all working")
     switch (num) {
         case 1:
             $('#animation_').html('Head wiggle')

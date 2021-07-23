@@ -142,28 +142,16 @@ function renderCatByID(dna, id) {
   setHeadColorByID(colors[dna.headcolor], dna.headcolor, id)
   $('#KittyGenes').val(dna.headcolor)
   setMouthColorByID(colors[dna.mouthColor], dna.mouthColor, id)
-  // $('#mouthcolor').val(dna.mouthColor)
   setEyeColorByID(colors[dna.eyesColor], dna.eyesColor, id)
-  // $('#eyecolor').val(dna.eyesColor)
   setEarColorByID(colors[dna.earsColor], dna.earsColor, id)
-  // $('#earcolor').val(dna.earsColor)
   eyeVariation(dna.eyesShape, id)  ///need to change???
-  // $('#eyeshape').val(dna.eyesShape)
-  decorationVariation(dna.decorationPattern)
-  // $('#deco_shape').val(dna.decorationPattern)
+  decorationVariation(dna.decorationPattern) ///need to change???
   setDecoMidColorByID(colors[dna.decorationMidcolor], dna.decorationMidcolor, id)
-  // $('#deco_color_mid').val(dna.decorationMidcolor)
   setDecoOutColorByID(colors[dna.decorationSidescolor], dna.decorationSidescolor, id)
-  // $('#deco_color_out').val(dna.decorationSidescolor)
-  animationVariation(dna.animation)
-  // $('#animation').val(dna.animation)
+  animationVariation(dna.animation) ///need to change???
 }
-function renderMultipleCats(id, dna) { //change this to take in an array of cats?
 
-  // let id = catInfoArray.catId;
-  // let dna = catInfoArray.dna
-  console.log(id)
-  //notice that Im using  this speacial quotes to write html code inside with line breaks
+function renderMultipleCats(id, dna) {
   let catBox = `<div id="` + id + `"><
                   <div class="cat">
                   <div class="cat__ear">
@@ -220,71 +208,68 @@ function renderMultipleCats(id, dna) { //change this to take in an array of cats
                 <br>
                 <br>
                 <br>
-                <br>
-                <br>
                 <p> This is cat` + id + ` </p>
                 <br>`
-  console.log("went to the end...")
-  //document.getElementById("catBoxes").innerHTML += catBox;
+
   $("#catBoxes").append(catBox) // Optionally you can use jquery with method 
-  //document.getElementById("catBoxes").appendChild(catBox);
+  
   renderCatByID(dna, id)
 }
 
-// // Changing cat colors
-// $('#bodycolor').change(() => {
-//   var colorVal = $('#bodycolor').val()
-//   headColor(colors[colorVal], colorVal)
-// })
+// Changing cat colors
+$('#bodycolor').change(() => {
+  var colorVal = $('#bodycolor').val()
+  headColor(colors[colorVal], colorVal)
+})
 
-// $('#mouthcolor').change(() => {
-//   var colorVal = $('#mouthcolor').val()
-//   mouthColor(colors[colorVal], colorVal)
-// })
+$('#mouthcolor').change(() => {
+  var colorVal = $('#mouthcolor').val()
+  mouthColor(colors[colorVal], colorVal)
+})
 
-// $('#eyecolor').change(() => {
-//   var colorVal = $('#eyecolor').val()
-//   eyeColor(colors[colorVal], colorVal)
-// })
+$('#eyecolor').change(() => {
+  var colorVal = $('#eyecolor').val()
+  eyeColor(colors[colorVal], colorVal)
+})
 
-// $('#earcolor').change(() => {
-//   var colorVal = $('#earcolor').val()
-//   earColor(colors[colorVal], colorVal)
-// })
+$('#earcolor').change(() => {
+  var colorVal = $('#earcolor').val()
+  earColor(colors[colorVal], colorVal)
+})
 
-// $('#eyeshape').change(() => {
-//   var shape = parseInt($('#eyeshape').val()) //number from 1 to 7
-//   eyeVariation(shape)
-// })
+$('#eyeshape').change(() => {
+  var shape = parseInt($('#eyeshape').val()) //number from 1 to 7
+  eyeVariation(shape)
+})
 
-// $('#deco_shape').change(() => {
-//   var shape = parseInt($('#deco_shape').val()) //number from 1 to 7
-//   decorationVariation(shape)
-// })
+$('#deco_shape').change(() => {
+  var shape = parseInt($('#deco_shape').val()) //number from 1 to 7
+  decorationVariation(shape)
+})
 
-// $('#deco_color_mid').change(() => {
-//   var colorVal = $('#deco_color_mid').val()
-//   DecoMidColor(colors[colorVal], colorVal)
-// })
+$('#deco_color_mid').change(() => {
+  var colorVal = $('#deco_color_mid').val()
+  DecoMidColor(colors[colorVal], colorVal)
+})
 
-// $('#deco_color_out').change(() => {
-//   var colorVal = $('#deco_color_out').val()
-//   DecoOutColor(colors[colorVal], colorVal)
-// })
+$('#deco_color_out').change(() => {
+  var colorVal = $('#deco_color_out').val()
+  DecoOutColor(colors[colorVal], colorVal)
+})
 
-// $('#animation').change(() => {
-//   var animationVal = parseInt($('#animation').val()) //number from 1 to 6
-//   animationVariation(animationVal)
-// })
+$('#animation').change(() => {
+  var animationVal = parseInt($('#animation').val()) //number from 1 to 6
+  animationVariation(animationVal)
+})
 
-// $('#btn-random').click(function(){
-//   randomCat()
-// })
+$('#btn-random').click(function(){
+  randomCat()
+})
 
-// $('#btn-default').click(function(){
-//   defaultCat()
-// })
+$('#btn-default').click(function(){
+  defaultCat()
+})
 
-// $('#btn-create').click(function(){
-//   //code to come here
-// })
+$('#btn-create').click(function(){
+  //code to come here
+})
