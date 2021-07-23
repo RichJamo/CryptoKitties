@@ -111,8 +111,6 @@ function getDna() {
   dna += $('#dnadecorationSides').html()
   dna += $('#dnaanimation').html()
   dna += $('#dnaspecial').html()
-  console.log(dna)
-  console.log(parseInt(dna))
   return parseInt(dna)
 }
 
