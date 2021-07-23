@@ -104,6 +104,10 @@ bytes4 private constant _INTERFACE_ID_ERC165 = 0x01ffc9a7;
         return kitties[_tokenId].genes;
     }
     
+    function getKittyGenesv2(uint256[] _tokenId) public view returns (uint256[] genes) {
+        return kitties[_tokenId].genes;
+    }
+    
     function getKittiesByOwner(address _owner) public view returns (uint256[] memory) {
         return ownerToKitties[_owner];
     }

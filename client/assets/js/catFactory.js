@@ -51,6 +51,43 @@ function DecoOutColor(color,code) {
     $('#dnadecorationSides').html(code) //This updates the ear color part of the DNA that is displayed below the cat
 }
 
+function setHeadColorByID(color,code, id) {
+    $('#head'+ id).css('background', '#' + color)  //This changes the color of the cat
+    // $('#headcode').html('code: '+code) //This updates text of the badge next to the slider
+    // $('#dnabody').html(code) //This updates the body color part of the DNA that is displayed below the cat
+}
+
+function setMouthColorByID(color,code, id) {
+    $('#mouth'+ id).css('background', '#' + color)  //This changes the color of the cat
+    $('#mouthcode').html('code: '+code) //This updates text of the badge next to the slider
+    $('#dnamouth').html(code) //This updates the mouth color part of the DNA that is displayed below the cat
+}
+
+function setEyeColorByID(color,code, id) {
+    $('#eye'+ id).css('background', '#' + color)  //This changes the color of the cat
+    $('#eyecode').html('code: '+code) //This updates text of the badge next to the slider
+    $('#dnaeyes').html(code) //This updates the eye color part of the DNA that is displayed below the cat
+}
+
+function setEarColorByID(color,code, id) {
+    $('.cat__ear--left, .cat__ear--right, .cat__paw-left, .cat__paw-right, .cat__paw-right_inner, .cat__paw-left_inner').css('background', '#' + color)  //This changes the color of the cat
+    $('#earcode').html('code: '+code) //This updates text of the badge next to the slider
+    $('#dnaears').html(code) //This updates the ear color part of the DNA that is displayed below the cat
+}
+
+function setDecoMidColorByID(color,code, id) {
+    $('#midDot' + id).css('background', '#' + color)  //This changes the color of the cat
+    $('#decocolor1').html('code: '+code) //This updates text of the badge next to the slider
+    $('#dnadecorationMid').html(code) //This updates the ear color part of the DNA that is displayed below the cat
+}
+
+function setDecoOutColorByID(color,code, id) {
+    $('#leftDot' + id).css('background', '#' + color)  //This changes the color of the cat
+    $('#rightDot' + id).css('background', '#' + color)  //This changes the color of the cat
+    $('#decocolor2').html('code: '+code) //This updates text of the badge next to the slider
+    $('#dnadecorationSides').html(code) //This updates the ear color part of the DNA that is displayed below the cat
+}
+
 //###################################################
 //Functions below will be used later on in the project
 //###################################################

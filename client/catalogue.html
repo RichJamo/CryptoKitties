@@ -10,6 +10,8 @@
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/js/web3.min.js"></script>
   <script src="./abi.js"></script>
+  <script src="assets/js/metamask-onboarding.bundle.js" defer></script>
+  <script src="assets/js/ethers.umd.min.js" type="application/javascript"></script>
 
   <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/mystyle.css">
@@ -27,20 +29,23 @@
       <a href="breed.html" class="btn btn-primary tsp-1 m-1 light-b-shadow" role="button">Breed New Kitten</a>
     </div>
   </header>
+
   <div class="container p-5" style="margin-top: 12vh;margin-bottom: 10vh;">
+    
     <div align="center">
       <h1 class="c-white">Kitty Catalogue</h1>
       <p class="c-white">Track your Kitties</p>
     </div>
+    
     <div class="row">
-      <div class="col-lg-4 catBox m-2 light-b-shadow">
-        <div id="catBoxes">
-        </div>
+      <div class="col-lg-4 catBox m-2 light-b-shadow" id="catBoxes">
+        <!-- <div id="catBoxes">
+        </div> -->
 
-        <br>
+        <!-- <br>
         <div class="container">
         </div>
-        <br>
+        <br> -->
 
       </div>
     </div>

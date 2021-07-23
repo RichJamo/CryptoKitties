@@ -1,43 +1,60 @@
-var web3 = new Web3(Web3.givenProvider);
-
 var instance;
 var user;
 var KittyIds;
-var Kitties=[];
+var Kitties = [];
 var contractAddress = "0x0b706DC82C073ba7Aa1179094235037A98720476"; //need to put contract address here
 
-$(document).ready(function(){
-    window.ethereum.enable().then(function(accounts){
-        instance = new web3.eth.Contract(abi, contractAddress, {from: accounts[0]});
-        user = accounts[0];
+/*****************************************/
+/* Detect the MetaMask Ethereum provider */
+/*****************************************/
 
-        console.log(instance);
+// import detectEthereumProvider from '@metamask/detect-provider';
 
-        instance.methods.getKittiesByOwner(accounts[0]).call((error, result) => {
-            KittyIds = result; //get out 0 and 1
-            for (i=0;i<KittyIds.length;i++){
-                instance.methods.getKittyGenes(KittyIds[i]).call((error, result) => { //get out a kitty struct each time
-                    renderCat2(i, dnaIntToObject(result))
-                })
-            }
-        });
-        //need to implement this here somehow - but need to get owner's cats first
-        
+// this returns the provider, or null if it wasn't detected
+// const provider = await detectEthereumProvider();
+const provider = new ethers.providers.Web3Provider(window.ethereum)
+const signer = provider.getSigner()
 
-        instance.events.Birth().on('data', function (event) {
-            console.log(event);
-            let owner = event.returnValues.owner;
-            let kittenId = event.returnValues.kittenId;
-            let mumId = event.returnValues.mumId;
-            let dadId = event.returnValues.dadId;
-            let genes = event.returnValues.genes;
-            $("#kittyCreation").css("display", "block");
-            $("#kittyCreation").text("owner: " + owner
-                + "kittenId: " + kittenId
-                + "mumId: " + mumId
-                + "dadId: " + dadId
-                + "genes: " + genes)
-        })
-            .on("error", console.error);
-    }) //call metamask enable function
-})
+if (provider) {
+    startApp(provider); // Initialize your app
+} else {
+    console.log('Please install MetaMask!');
+}
+
+async function startApp(provider) {
+    // If the provider returned by detectEthereumProvider is not the same as
+    // window.ethereum, something is overwriting it, perhaps another wallet.
+    if (provider !== window.ethereum) {
+        console.error('Do you have multiple wallets installed?');
+    }
+
+    const accounts = await ethereum.request({ method: 'eth_accounts' });
+    user = accounts[0];
+    
+    kittyIDs = await getKittiesByOwner(user);
+
+    for (i = 0; i < kittyIDs.length; i++) {
+        kittyGenes = await getKittyGenes(kittyIDs[i])
+        renderMultipleCats(i, convertDNAfromIntToObject(kittyGenes))
+    }
+}
+
+async function getKittyGenes(_kittyID) {
+    kittyContract = new ethers.Contract(contractAddress, abi, signer);
+    try {
+        kittyGenes = await kittyContract.getKittyGenes(_kittyID);
+        return kittyGenes;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getKittiesByOwner(_owner) {
+    kittyContract = new ethers.Contract(contractAddress, abi, signer);
+    try {
+        kittyIDs = await kittyContract.getKittiesByOwner(_owner);
+        return kittyIDs;
+    } catch (error) {
+        console.log(error);
+    }
+}
